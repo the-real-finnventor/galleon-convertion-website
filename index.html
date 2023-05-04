@@ -25,9 +25,11 @@
         const c = 7.35;
         let cv = n * c;
         let rcv = Math.round(1000 * cv) / 1000;
-        let rcvwos = "$" + rcv + " USD"
-        console.log(rcv)
-        console.log(rcvwos)
+        const formattedCurrency = rcv.toLocaleString('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        });
+        let rcvwos = formattedCurrency + " USD"
         o.innerHTML = rcvwos;
       }
 
