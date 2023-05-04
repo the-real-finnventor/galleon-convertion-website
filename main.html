@@ -16,15 +16,16 @@
         <p id="converted-value"></p>
       </div>
     </div>
-
-    <script src="app.js">
+    <script>
       const v = document.getElementById('galleons');
       const b = document.getElementById('convert-btn');
       const o = document.getElementById('converted-value');
-      const cv = v.value * 7.35
-
       function conv() {
-        o.innerHTML = cv;
+        const n = +v.value;
+        const c = 7.35;
+        let cv = n * c;
+        let rcv = Math.round(1000 * cv) / 1000;
+        o.innerHTML = rcv;
       }
 
       b.addEventListener('click',conv)
