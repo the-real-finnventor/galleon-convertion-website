@@ -33,6 +33,13 @@
         o.innerHTML = rcvwos;
       }
 
+      document.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+          conv();
+        }
+      });
+
+
       b.addEventListener('click',conv)
     </script>
   </body>
