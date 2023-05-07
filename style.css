@@ -29,6 +29,11 @@ input[type="number"] {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.side-note {
+  font-size: small;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 button[type="submit"] {
   padding: 10px 20px;
   background-color: #5d88ff;

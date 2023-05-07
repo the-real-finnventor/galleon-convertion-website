@@ -8,8 +8,13 @@
     <div class="container">
       <h1>Harry Potter Galleon Converter</h1>
       <div class="form">
-        <label for="galleons">Enter the amount of Galleons:</label>
+        <label for="galleons">Enter the amount of Galleons, Sickles, and Knuts:</label>
+        <p class="side-note">(Galleons)</p>
         <input type="number" id="galleons" name="galleons">
+        <p class="side-note">(Sickles)</p>
+        <input type="number" id="sickles" name="sickles">
+        <p class="side-note">(Knuts)</p>
+        <input type="number" id="knuts" name="knuts">
         <button type="submit" id="convert-btn">Convert</button>
       </div>
       <div class="result">
@@ -17,20 +22,38 @@
       </div>
     </div>
     <script>
-      const v = document.getElementById('galleons');
+      const g = document.getElementById('galleons');
+      const s = document.getElementById('sickles');
+      const k = document.getElementById('knuts');
       const b = document.getElementById('convert-btn');
       const o = document.getElementById('converted-value');
       function conv() {
-        const n = +v.value;
+        const gn = +g.value;
+        console.log(gn)
+        const sn = +s.value;
+        const snig = sn / 17;
+        console.log(snig)
+        const kn = +k.value;
+        const knis = kn / 29;
+        console.log(knis)
+        const knisig = knis / 17;
+        console.log(knisig)
+        const fgn = gn + snig + knisig;
+        console.log(fgn)
         const c = 7.35;
-        let cv = n * c;
+        let cv = fgn * c;
+        console.log(cv)
         let rcv = Math.round(1000 * cv) / 1000;
+        console.log(rcv)
         const formattedCurrency = rcv.toLocaleString('en-US', {
           style: 'currency',
           currency: 'USD'
         });
+        console.log(formattedCurrency)
         let rcvwos = formattedCurrency + " USD"
+        console.log(rcvwos)
         o.innerHTML = rcvwos;
+        console.log(o.innerHTML)
       }
 
       document.addEventListener("keyup", function(event) {
