@@ -16,6 +16,26 @@
         <p class="side-note">(Knuts)</p>
         <input type="number" id="knuts" name="knuts">
         <button type="submit" id="convert-btn">Convert</button>
+        <label for="cars">Choose a currency:</label>
+        <select name="currency-dropdown" id="currency-dropdown">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="AUD">AUD</option>
+          <option value="CAD">CAD</option>
+          <option value="JPY">JPY</option>
+          <option value="NZD">NZD</option>
+          <option value="DKK">DKK</option>
+          <option value="ZAR">ZAR</option>
+          <option value="INR">INR</option>
+          <option value="HKD">HKD</option>
+          <option value="PHP">PHP</option>
+          <option value="THB">THB</option>
+          <option value="SEK">SEK</option>
+          <option value="RSD">RSD</option>
+          <option value="ARS">ARS</option>
+          <option value="SGD">SGD</option>
+        </select>
       </div>
       <div class="result">
         <p id="converted-value"></p>
@@ -27,30 +47,52 @@
       const k = document.getElementById('knuts');
       const b = document.getElementById('convert-btn');
       const o = document.getElementById('converted-value');
+      const cd = document.getElementById('currency-dropdown');
+      var convertions = {
+        'USD' : 7.35,
+        'EUR' : 5.90,
+        'GBP' : 4.93,
+        'AUD' : 7.96,
+        'CAD' : 7.82,
+        'CHF' : 7.45,
+        'JPY' : 653.66,
+        'DKK' : 43.94,
+        'ZAR' : 54.01,
+        'INR' : 354.67,
+        'HKD' : 60.64,
+        'PHP' : 342.24,
+        'THB' : 245.36,
+        'SEK' : 53.81,
+        'RSD' : 631.25,
+        'ARS' : 25.34,
+        'SGD' : 8.11
+      }
       function conv() {
+        const cdv = cd.value;
+        console.log(cdv);
         const gn = +g.value;
-        console.log(gn)
+        console.log(gn);
         const sn = +s.value;
         const snig = sn / 17;
-        console.log(snig)
+        console.log(snig);
         const kn = +k.value;
         const knis = kn / 29;
-        console.log(knis)
+        console.log(knis);
         const knisig = knis / 17;
-        console.log(knisig)
+        console.log(knisig);
         const fgn = gn + snig + knisig;
-        console.log(fgn)
-        const c = 7.35;
+        console.log(fgn);
+        const c = convertions[cdv];
         let cv = fgn * c;
-        console.log(cv)
-        let rcv = Math.round(1000 * cv) / 1000;
-        console.log(rcv)
+        console.log(cv);
+        let rcv = cv;
+        console.log(rcv);
         const formattedCurrency = rcv.toLocaleString('en-US', {
           style: 'currency',
-          currency: 'USD'
+          currency: cdv
         });
         console.log(formattedCurrency)
-        let rcvwos = formattedCurrency + " USD"
+        let rcvwos = formattedCurrency + " " + cdv
         console.log(rcvwos)
         o.innerHTML = rcvwos;
         console.log(o.innerHTML)
