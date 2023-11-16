@@ -1,120 +1,123 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Harry Potter Galleon Converter</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1>Harry Potter Galleon Converter</h1>
-      <div class="form">
-        <label for="galleons">Enter the amount of Galleons, Sickles, and Knuts:</label>
-        <p class="side-note">(Galleons)</p>
-        <input type="number" id="galleons" name="galleons">
-        <p class="side-note">(Sickles)</p>
-        <input type="number" id="sickles" name="sickles">
-        <p class="side-note">(Knuts)</p>
-        <input type="number" id="knuts" name="knuts">
-        <button type="submit" id="convert-btn">Convert</button>
-        <label for="cars">Choose a currency:</label>
-        <select name="currency-dropdown" id="currency-dropdown">
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-          <option value="GBP">GBP</option>
-          <option value="AUD">AUD</option>
-          <option value="CAD">CAD</option>
-          <option value="JPY">JPY</option>
-          <option value="NZD">NZD</option>
-          <option value="DKK">DKK</option>
-          <option value="ZAR">ZAR</option>
-          <option value="INR">INR</option>
-          <option value="HKD">HKD</option>
-          <option value="PHP">PHP</option>
-          <option value="THB">THB</option>
-          <option value="SEK">SEK</option>
-          <option value="RSD">RSD</option>
-          <option value="ARS">ARS</option>
-          <option value="SGD">SGD</option>
-        </select>
-      </div>
-      <div class="result">
-        <p id="converted-value"></p>
-      </div>
-    </div>
-    <div class="info">
-      <label for="convertions">Convertions:</label>
-      <p>1 Galleon = 7.35 USD</p>
-      <p>1 Galleon = 5.90 EUR</p>
-      <p>1 Galleon = 4.93 GBP</p>
-      <p>1 Galleon = 7.96 AUD</p>
-      <p>1 Galleon = 7.82 CAD</p>
-      <p>1 Galleon = </p>
-    </div>
-    <script>
-      const g = document.getElementById('galleons');
-      const s = document.getElementById('sickles');
-      const k = document.getElementById('knuts');
-      const b = document.getElementById('convert-btn');
-      const o = document.getElementById('converted-value');
-      const cd = document.getElementById('currency-dropdown');
-      var convertions = {
-        'USD' : 7.35,
-        'EUR' : 5.90,
-        'GBP' : 4.93,
-        'AUD' : 7.96,
-        'CAD' : 7.82,
-        'CHF' : 7.45,
-        'JPY' : 653.66,
-        'DKK' : 43.94,
-        'ZAR' : 54.01,
-        'INR' : 354.67,
-        'HKD' : 60.64,
-        'PHP' : 342.24,
-        'THB' : 245.36,
-        'SEK' : 53.81,
-        'RSD' : 631.25,
-        'ARS' : 25.34,
-        'SGD' : 8.11
-      }
-      function conv() {
-        const cdv = cd.value;
-        console.log(cdv);
-        const gn = +g.value;
-        console.log(gn);
-        const sn = +s.value;
-        const snig = sn / 17;
-        console.log(snig);
-        const kn = +k.value;
-        const knis = kn / 29;
-        console.log(knis);
-        const knisig = knis / 17;
-        console.log(knisig);
-        const fgn = gn + snig + knisig;
-        console.log(fgn);
-        const c = convertions[cdv];
-        let cv = fgn * c;
-        console.log(cv);
-        let rcv = cv;
-        console.log(rcv);
-        const formattedCurrency = rcv.toLocaleString('en-US', {
-          style: 'currency',
-          currency: cdv
-        });
-        console.log(formattedCurrency)
-        let rcvwos = formattedCurrency
-        console.log(rcvwos)
-        o.innerHTML = rcvwos;
-        console.log(o.innerHTML)
-      }
 
-      document.addEventListener("keyup", function(event) {
-        if (event.keyCode === 13) {
-          conv();
-        }
+<head>
+  <title>Harry Potter Galleon Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Harry Potter Galleon Converter</h1>
+    <div class="form">
+      <label for="galleons">Enter the amount of Galleons, Sickles, and Knuts:</label>
+      <p class="side-note">(Galleons)</p>
+      <input type="number" id="galleons" name="galleons">
+      <p class="side-note">(Sickles)</p>
+      <input type="number" id="sickles" name="sickles">
+      <p class="side-note">(Knuts)</p>
+      <input type="number" id="knuts" name="knuts">
+      <button type="submit" id="convert-btn">Convert</button>
+      <label for="cars">Choose a currency:</label>
+      <select name="currency-dropdown" id="currency-dropdown">
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+        <option value="AUD">AUD</option>
+        <option value="CAD">CAD</option>
+        <option value="JPY">JPY</option>
+        <option value="NZD">NZD</option>
+        <option value="DKK">DKK</option>
+        <option value="ZAR">ZAR</option>
+        <option value="INR">INR</option>
+        <option value="HKD">HKD</option>
+        <option value="PHP">PHP</option>
+        <option value="THB">THB</option>
+        <option value="SEK">SEK</option>
+        <option value="RSD">RSD</option>
+        <option value="ARS">ARS</option>
+        <option value="SGD">SGD</option>
+      </select>
+    </div>
+    <div class="result">
+      <p id="converted-value"></p>
+    </div>
+  </div>
+  <div class="info">
+    <label for="convertions">Convertions:</label>
+    <p>1 Galleon = 7.35 USD</p>
+    <p>1 Galleon = 5.90 EUR</p>
+    <p>1 Galleon = 4.93 GBP</p>
+    <p>1 Galleon = 7.96 AUD</p>
+    <p>1 Galleon = 7.82 CAD</p>
+    <p>1 Galleon = </p>
+  </div>
+  <script>
+    const g = document.getElementById('galleons');
+    const s = document.getElementById('sickles');
+    const k = document.getElementById('knuts');
+    const b = document.getElementById('convert-btn');
+    const o = document.getElementById('converted-value');
+    const cd = document.getElementById('currency-dropdown');
+    var convertions = {
+      'USD': 7.35,
+      'EUR': 5.90,
+      'GBP': 4.93,
+      'AUD': 7.96,
+      'CAD': 7.82,
+      'CHF': 7.45,
+      'JPY': 653.66,
+      'DKK': 43.94,
+      'ZAR': 54.01,
+      'INR': 354.67,
+      'HKD': 60.64,
+      'PHP': 342.24,
+      'THB': 245.36,
+      'SEK': 53.81,
+      'RSD': 631.25,
+      'ARS': 25.34,
+      'SGD': 8.11
+    }
+    function conv() {
+      const cdv = cd.value;
+      console.log(cdv);
+      const gn = +g.value;
+      console.log(gn);
+      const sn = +s.value;
+      const snig = sn / 17;
+      console.log(snig);
+      const kn = +k.value;
+      const knis = kn / 29;
+      console.log(knis);
+      const knisig = knis / 17;
+      console.log(knisig);
+      const fgn = gn + snig + knisig;
+      console.log(fgn);
+      const c = convertions[cdv];
+      let cv = fgn * c;
+      console.log(cv);
+      let rcv = cv;
+      console.log(rcv);
+      const formattedCurrency = rcv.toLocaleString('en-US', {
+        style: 'currency',
+        currency: cdv
       });
+      console.log(formattedCurrency)
+      let rcvwos = formattedCurrency
+      console.log(rcvwos)
+      o.innerHTML = rcvwos;
+      console.log(o.innerHTML)
+    }
+
+    document.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        conv();
+      }
+    });
 
 
-      b.addEventListener('click',conv)
-    </script>
-  </body>
+    b.addEventListener('click', conv)
+  </script>
+</body>
+
 </html>
