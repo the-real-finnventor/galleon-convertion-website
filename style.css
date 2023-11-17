@@ -58,3 +58,15 @@ button[type="submit"]:hover {
   font-size: 24px;
   font-weight: bold;
 }
+
+.note {
+  position: absolute;
+  bottom: 0;
+  right: 5px;
+}
+
+.info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
